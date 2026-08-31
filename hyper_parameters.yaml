@@ -1,0 +1,30 @@
+DESCRIBE: BeyondRGB_experiment  # Main folder name for the experiment results
+
+TRAIN:  # Training-related parameter settings
+  EPOCH: 100  # Number of training epochs
+  LR: 0.003  # Learning rate
+  BATCH_SIZE: 8  # Batch size
+  SAVE_INTERVAL: 1  # Model save interval
+  VALIDATION_INTERVAL: 1  # Validation interval
+  DEVICE: cuda:0  # Computing device
+  SEED: 123  # Random seed
+
+  LOSS: # Loss function settings, finalized
+    W1: 1
+    W2: 30
+    W3: 0.0001
+
+  OPTIMIZER:  # Optimizer settings; other optimizers can be configured as needed
+    ADAM: true
+
+  DATASET_PATH: 'beyondRGB'  # Dataset root directory
+  NUM_WORKERS: 4  # Number of threads for data loading
+  MS_SIZE: 256 # Random crop size
+  NUMBER: 8 # Number of random crops
+  N_BINS: 128 # Number of bins on each axis of the log-chroma histogram
+  HIST_RANGE: [-3.2, 3.2] # Numerical range of the log-chroma histogram
+
+MODEL:
+  NAME: 'ISEmodel' #
+  MS_CHANNELS: 16   # 16 multispectral channels
+  OUT_CHANNELS: 36   # Output 36-channel spectrum

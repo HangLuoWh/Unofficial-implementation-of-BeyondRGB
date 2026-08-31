@@ -1,0 +1,30 @@
+DESCRIBE: BeyondRGB_experiment  # 实验结果的主文件夹名
+
+TRAIN:  # 训练相关参数的设置
+  EPOCH: 100  # 训练轮次
+  LR: 0.003  # 学习率
+  BATCH_SIZE: 8  # 批大小
+  SAVE_INTERVAL: 1  # 存储模型的步长
+  VALIDATION_INTERVAL: 1  # 验证模型的步长
+  DEVICE: cuda:0  # 计算设备
+  SEED: 123  # 随机数种子
+
+  LOSS: # 损失函数设置，已确定
+    W1: 1
+    W2: 30
+    W3: 0.0001
+
+  OPTIMIZER:  # 优化器设置，可根据需要设置其它优化器，并添加相应的参数
+    ADAM: true
+
+  DATASET_PATH: 'beyondRGB'  # 数据集根目录
+  NUM_WORKERS: 4  # 读数据的线程
+  MS_SIZE: 256 # 随机裁切的尺寸
+  NUMBER: 8 # 随机裁切的次数
+  N_BINS: 128 # 对数色度直方图一个轴上的网格数量
+  HIST_RANGE: [-3.2, 3.2] # 对数色度直方图的数值范围
+
+MODEL:
+  NAME: 'ISEmodel' #
+  MS_CHANNELS: 16   # 多光谱16通道
+  OUT_CHANNELS: 36   # 输出36通道光谱
